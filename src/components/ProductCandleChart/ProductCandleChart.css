@@ -1,0 +1,14 @@
+.product-candle-chart{
+    position: relative;
+}
+
+.product-candle-chart-header{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    top: 2em;
+    right: 2em;
+    width: 160px;
+    z-index: 1;
+}

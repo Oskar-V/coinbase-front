@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import ProductMenu from "./components/ProductMenu/ProductMenu";
+import ProductCandleChart from "./components/ProductCandleChart/ProductCandleChart";
+import {SnackbarProvider} from 'notistack';
 
 function App() {
+  const [selectedProductsIdList, setSelectedProductsIdList] = useState<string[]>([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SnackbarProvider>
+      <div className="App">
+        <ProductMenu productSelectHandler={setSelectedProductsIdList}/>
+        <div>
+          {selectedProductsIdList.map(id => <ProductCandleChart key={id} productId={id}/>)}
+        </div>
+      </div>
+    </SnackbarProvider>
   );
 }
 
