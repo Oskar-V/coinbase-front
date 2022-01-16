@@ -1,0 +1,20 @@
+.product-menu{
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2929;
+}
+
+.product-menu-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.product-menu-item:hover{
+    background-color: #504e4e;
+    cursor: pointer;
+}
+
+.checkbox:hover{
+    cursor: pointer;
+}
