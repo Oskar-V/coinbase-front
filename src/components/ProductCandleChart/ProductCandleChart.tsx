@@ -1,4 +1,4 @@
-import React, {useEffect,  useState} from 'react';
+import {useEffect,  useState} from 'react';
 import './ProductCandleChart.css';
 import axios from "axios";
 import ReactEcharts from 'echarts-for-react';
@@ -19,6 +19,7 @@ import {getDateTimeString} from "../../helpers";
 
 interface PropsInterface {
   productId: string
+  dataUpdateCount: number
 }
 
 interface ProductCandleStick {
@@ -53,11 +54,22 @@ function ProductCandleChart(props: PropsInterface) {
           })
         })
         setProductCandleSticks(data.reverse());
+        enqueueSnackbar(`Updated ${props.productId} data!`,
+          {
+            variant:'success',
+            transitionDuration: {appear:4000},
+            anchorOrigin:{horizontal:'right', vertical: 'bottom'}
+          });
       }).catch(e => {
-        //TODO undo select boxes if wrong config
-      enqueueSnackbar(e.response.data.message, {variant:'error'});
+        //TODO undo select boxes if wrong config, granularity for example
+      enqueueSnackbar(`Failed ${props.productId} data update! ${e.response.data.message}` ,
+        {
+          variant:'error',
+          transitionDuration: {appear:15000},
+          anchorOrigin:{horizontal:'right', vertical: 'bottom'}
+        });
     });
-  }, [granularity, startTime, endTime])
+  }, [granularity, startTime, endTime, props.dataUpdateCount])
 
   const getOption = () => {
     const dateTimes: string[] = [];

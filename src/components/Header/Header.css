@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 3em;
+    border-bottom: solid 2px black;
+}
+
+.time-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
