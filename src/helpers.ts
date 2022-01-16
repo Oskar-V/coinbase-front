@@ -20,7 +20,7 @@ export const getDateTimeString = (type:string, date:Date) : string => {
   return d.toISOString();
 }
 
-const isDateToday = (date:Date):boolean => {
+const isDateToday = (date:Date):boolean => new Date().getTime() - date.getTime() < 8.64e+7;
   const today = new Date();
   return date.getDate() === today.getDate() && date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth();
 }
