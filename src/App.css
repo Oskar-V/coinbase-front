@@ -1,8 +1,8 @@
 body {
-  background-color: #dad2d2;
+  background-color: #7a7575;
 }
 
-.App {
+.app-body{
   display: grid;
   grid-template-columns: 10em 1fr;
 }
