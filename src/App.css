@@ -14,6 +14,10 @@ body {
   color: white
 }
 
+.header-text-01{
+  font-size: 22px;
+}
+
 .MuiFormControl-root *{
   color: white !important;
   border-color: white !important;

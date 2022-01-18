@@ -1,5 +1,7 @@
 import moment from "moment";
 
+
+//TODO better function names here
 export const getDateTimeString = (type: string, date: Date): string => {
   const d = moment(date).utc(false);
 

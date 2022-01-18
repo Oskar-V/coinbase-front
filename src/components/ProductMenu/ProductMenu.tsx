@@ -35,6 +35,7 @@ function ProductMenu(props : PropsInterface) {
 
   return (
       <div className={"product-menu"}>
+        <div className={"text-01 product-menu-item"}>Currencies: {productsList.length}</div>
         {productsList.map(product =>
           <div key={product.id} className={"product-menu-item"} onClick={() => onClickHandler(product.id)}>
             <div className={"text-01"}>
